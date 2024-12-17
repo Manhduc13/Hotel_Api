@@ -2,6 +2,7 @@ package com.nguyenducmanh.hotel_app_spring_api.controllers;
 
 import com.nguyenducmanh.hotel_app_spring_api.dto.BookingCreateUpdateDTO;
 import com.nguyenducmanh.hotel_app_spring_api.dto.BookingDTO;
+import com.nguyenducmanh.hotel_app_spring_api.dto.CustomPagedResponse;
 import com.nguyenducmanh.hotel_app_spring_api.services.BookingService;
 import jakarta.validation.Valid;
 import lombok.AccessLevel;
@@ -12,10 +13,14 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PagedResourcesAssembler;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.Links;
+import org.springframework.hateoas.PagedModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
@@ -57,8 +62,15 @@ public class BookingController {
             pageable = PageRequest.of(page, size, Sort.by(sortBy).descending());
         }
         Page<BookingDTO> bookingDTOs = bookingService.searchAll(keyword, pageable);
-        var pagedModel = this.pagedResourcesAssembler.toModel(bookingDTOs);
-        return ResponseEntity.ok(pagedModel);
+        PagedModel<EntityModel<BookingDTO>> pagedModel = this.pagedResourcesAssembler.toModel(bookingDTOs);
+
+        Collection<EntityModel<BookingDTO>> data = pagedModel.getContent();
+        PagedModel.PageMetadata pageInfo = pagedModel.getMetadata();
+        Links links = pagedModel.getLinks();
+
+        CustomPagedResponse<EntityModel<BookingDTO>> response = new CustomPagedResponse<>(data, pageInfo, links);
+
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping
