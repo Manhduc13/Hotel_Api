@@ -1,6 +1,6 @@
 package com.nguyenducmanh.hotel_app_spring_api.entities;
 
-import com.nguyenducmanh.hotel_app_spring_api.enums.ROLE;
+import com.nguyenducmanh.hotel_app_spring_api.enums.RoleName;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -22,7 +22,7 @@ public class Role {
     UUID id;
 
     @Column(nullable = false, unique = true)
-    ROLE name;
+    RoleName name;
 
     @Column(length = 500)
     String description;
