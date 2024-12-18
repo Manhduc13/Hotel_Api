@@ -4,6 +4,9 @@ import com.nguyenducmanh.hotel_app_spring_api.dto.AmenityCreateUpdateDTO;
 import com.nguyenducmanh.hotel_app_spring_api.dto.AmenityDTO;
 import com.nguyenducmanh.hotel_app_spring_api.dto.CustomPagedResponse;
 import com.nguyenducmanh.hotel_app_spring_api.services.AmenityService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +31,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/amenities")
+@Tag(name = "Amenities")
 public class AmenityController {
     AmenityService amenityService;
 
@@ -35,12 +39,17 @@ public class AmenityController {
 
 
     @GetMapping
+    @Operation(summary = "Get all amenities")
+    @ApiResponse(responseCode = "200", description = "Get all amenities successfully")
     public ResponseEntity<List<AmenityDTO>> findAll() {
         List<AmenityDTO> amenities = amenityService.findAll();
         return ResponseEntity.ok(amenities);
     }
 
     @GetMapping("/{id}")
+    @Operation(summary = "Get amenity by id")
+    @ApiResponse(responseCode = "200", description = "Get amenity by id successfully")
+    @ApiResponse(responseCode = "404", description = "Amenity not found")
     public ResponseEntity<AmenityDTO> findById(@PathVariable("id") UUID id) {
         AmenityDTO amenityDTO = amenityService.findById(id);
         if (amenityDTO == null) {
@@ -50,6 +59,8 @@ public class AmenityController {
     }
 
     @GetMapping("/search")
+    @Operation(summary = "Search amenities")
+    @ApiResponse(responseCode = "200", description = "Search amenities successfully")
     public ResponseEntity<?> searchAll(
             @RequestParam(name = "keyword", required = false, defaultValue = "") String keyword,
             @RequestParam(name = "page", required = false, defaultValue = "0") int page,
@@ -80,6 +91,9 @@ public class AmenityController {
 
     // Create
     @PostMapping
+    @Operation(summary = "Create amenity")
+    @ApiResponse(responseCode = "200", description = "Create amenity successfully")
+    @ApiResponse(responseCode = "400", description = "Bad request")
     public ResponseEntity<AmenityDTO> create(
             @RequestBody @Valid AmenityCreateUpdateDTO amenityCreateUpdateDTO,
             BindingResult bindingResult) {
@@ -97,6 +111,9 @@ public class AmenityController {
 
     // Update
     @PutMapping("/{id}")
+    @Operation(summary = "Update amenity")
+    @ApiResponse(responseCode = "200", description = "Update amenity successfully")
+    @ApiResponse(responseCode = "400", description = "Bad request")
     public ResponseEntity<AmenityDTO> update(
             @PathVariable("id") UUID id,
             @RequestBody @Valid AmenityCreateUpdateDTO amenityCreateUpdateDTO,
@@ -114,6 +131,9 @@ public class AmenityController {
     }
 
     @DeleteMapping("/{id}")
+    @Operation(summary = "Delete amenity by id")
+    @ApiResponse(responseCode = "200", description = "Delete amenity by id successfully")
+    @ApiResponse(responseCode = "404", description = "Amenity not found")
     public ResponseEntity<Boolean> delete(
             @PathVariable("id") UUID id) {
         boolean result = amenityService.delete(id);
