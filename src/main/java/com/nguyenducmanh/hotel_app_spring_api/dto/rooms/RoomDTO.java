@@ -1,4 +1,4 @@
-package com.nguyenducmanh.hotel_app_spring_api.dto;
+package com.nguyenducmanh.hotel_app_spring_api.dto.rooms;
 
 import com.nguyenducmanh.hotel_app_spring_api.enums.RoomType;
 import lombok.*;

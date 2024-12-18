@@ -1,4 +1,4 @@
-package com.nguyenducmanh.hotel_app_spring_api.dto;
+package com.nguyenducmanh.hotel_app_spring_api.dto.amenities;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;

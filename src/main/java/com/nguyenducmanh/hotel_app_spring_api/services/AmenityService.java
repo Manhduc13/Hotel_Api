@@ -1,7 +1,7 @@
 package com.nguyenducmanh.hotel_app_spring_api.services;
 
-import com.nguyenducmanh.hotel_app_spring_api.dto.AmenityCreateUpdateDTO;
-import com.nguyenducmanh.hotel_app_spring_api.dto.AmenityDTO;
+import com.nguyenducmanh.hotel_app_spring_api.dto.amenities.AmenityCreateUpdateDTO;
+import com.nguyenducmanh.hotel_app_spring_api.dto.amenities.AmenityDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

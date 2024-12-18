@@ -1,7 +1,7 @@
 package com.nguyenducmanh.hotel_app_spring_api.services;
 
-import com.nguyenducmanh.hotel_app_spring_api.dto.BookingCreateUpdateDTO;
-import com.nguyenducmanh.hotel_app_spring_api.dto.BookingDTO;
+import com.nguyenducmanh.hotel_app_spring_api.dto.bookings.BookingCreateUpdateDTO;
+import com.nguyenducmanh.hotel_app_spring_api.dto.bookings.BookingDTO;
 import com.nguyenducmanh.hotel_app_spring_api.entities.Booking;
 import com.nguyenducmanh.hotel_app_spring_api.enums.BookingStatus;
 import com.nguyenducmanh.hotel_app_spring_api.repositories.BookingRepository;

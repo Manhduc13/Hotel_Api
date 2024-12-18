@@ -1,9 +1,9 @@
 package com.nguyenducmanh.hotel_app_spring_api.controllers;
 
-import com.nguyenducmanh.hotel_app_spring_api.dto.AmenityCreateUpdateDTO;
-import com.nguyenducmanh.hotel_app_spring_api.dto.AmenityDTO;
-import com.nguyenducmanh.hotel_app_spring_api.dto.CustomPagedResponse;
+import com.nguyenducmanh.hotel_app_spring_api.dto.amenities.AmenityCreateUpdateDTO;
+import com.nguyenducmanh.hotel_app_spring_api.dto.amenities.AmenityDTO;
 import com.nguyenducmanh.hotel_app_spring_api.services.AmenityService;
+import com.nguyenducmanh.hotel_app_spring_api.utils.CustomPagedResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;

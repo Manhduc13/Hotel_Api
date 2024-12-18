@@ -1,9 +1,9 @@
 package com.nguyenducmanh.hotel_app_spring_api.controllers;
 
-import com.nguyenducmanh.hotel_app_spring_api.dto.CustomPagedResponse;
-import com.nguyenducmanh.hotel_app_spring_api.dto.RoomCreateUpdateDTO;
-import com.nguyenducmanh.hotel_app_spring_api.dto.RoomDTO;
+import com.nguyenducmanh.hotel_app_spring_api.dto.rooms.RoomCreateUpdateDTO;
+import com.nguyenducmanh.hotel_app_spring_api.dto.rooms.RoomDTO;
 import com.nguyenducmanh.hotel_app_spring_api.services.RoomService;
+import com.nguyenducmanh.hotel_app_spring_api.utils.CustomPagedResponse;
 import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;

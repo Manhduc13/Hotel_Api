@@ -1,4 +1,4 @@
-package com.nguyenducmanh.hotel_app_spring_api.dto;
+package com.nguyenducmanh.hotel_app_spring_api.dto.bookings;
 
 import com.nguyenducmanh.hotel_app_spring_api.enums.BookingStatus;
 import lombok.*;

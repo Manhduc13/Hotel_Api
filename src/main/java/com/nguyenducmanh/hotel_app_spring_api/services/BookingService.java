@@ -1,7 +1,7 @@
 package com.nguyenducmanh.hotel_app_spring_api.services;
 
-import com.nguyenducmanh.hotel_app_spring_api.dto.BookingCreateUpdateDTO;
-import com.nguyenducmanh.hotel_app_spring_api.dto.BookingDTO;
+import com.nguyenducmanh.hotel_app_spring_api.dto.bookings.BookingCreateUpdateDTO;
+import com.nguyenducmanh.hotel_app_spring_api.dto.bookings.BookingDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
