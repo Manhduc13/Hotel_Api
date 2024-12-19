@@ -37,7 +37,6 @@ public class AmenityController {
 
     PagedResourcesAssembler<AmenityDTO> pagedResourcesAssembler;
 
-
     @GetMapping
     @Operation(summary = "Get all amenities")
     @ApiResponse(responseCode = "200", description = "Get all amenities successfully")
@@ -85,7 +84,6 @@ public class AmenityController {
         Links links = pagedModel.getLinks();
 
         CustomPagedResponse<EntityModel<AmenityDTO>> response = new CustomPagedResponse<>(data, pageInfo, links);
-
         return ResponseEntity.ok(response);
     }
 

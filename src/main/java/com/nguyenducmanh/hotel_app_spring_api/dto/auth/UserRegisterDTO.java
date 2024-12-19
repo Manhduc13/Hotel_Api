@@ -42,6 +42,4 @@ public class UserRegisterDTO {
     @NotBlank(message = "Confirm password is required")
     @Length(min = 8, max = 12, message = "Password must be between 8 and 12 characters")
     String confirmPassword;
-
-
 }
